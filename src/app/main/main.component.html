@@ -1,0 +1,23 @@
+<!-- Header -->
+<div class="header">
+    <img class="header" src="./../../assets/images/great.jpg">
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a routerLink='home'>Maak je eigen team!</a>
+    <a routerLink='raad'>Raad de Pokemon!</a>
+    <a routerLink='battle'>Battle Team Rocket!</a>
+</div>
+<div class="row">
+    <div class="side">
+        <h3>Welkom, trainer!</h3>
+        <img src="./assets/images/trainer.jpg" style="height:200px;">
+        <div class="fakeimg" style="height:60px;">Image</div><br>
+        <div class="fakeimg" style="height:60px;">Image</div><br>
+        <div class="fakeimg" style="height:60px;">Image</div>
+    </div>
+    <div class="inhoud">
+        <router-outlet></router-outlet>
+    </div>
+</div>
