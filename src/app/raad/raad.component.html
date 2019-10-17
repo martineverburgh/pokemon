@@ -2,6 +2,12 @@
 <img class="randomPokemon" src={{pokemon.img}} *ngIf="pokemon">
 <p>
     <label>Dit is
-        <input #naam placeholder=" ..."/>
+        <input [(ngModel)]="antwoord" placeholder="...">
     </label>
 </p>
+<button mat-button class="btn btn-primary button groen" (click)="checkCorrect()">Check antwoord</button>
+<button class="btn btn-primary button" (click)="kiesRandomPokemon()">Raad nog een Pokémon!</button>
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{response}}</h4>
+  </ng-template>
