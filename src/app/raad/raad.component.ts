@@ -47,6 +47,7 @@ export class RaadComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
+    this.checkCorrect();
     this.popup = this.modalService.show(template);
 }
 }
