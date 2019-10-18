@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { PokemonService } from 'src/app/core/services/pokemon.service';
-import { Pokemon } from 'src/app/shared/models/pokemon';
+import {Component, OnInit} from '@angular/core';
+import {PokemonService} from 'src/app/core/services/pokemon.service';
+import {Pokemon} from 'src/app/shared/models/pokemon';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   selectedTeamPokemon: Pokemon;
   team: Pokemon[] = [];
 
-  constructor(private service: PokemonService) { }
+  constructor(private service: PokemonService) {
+  }
 
   ngOnInit() {
 
@@ -25,8 +26,11 @@ export class AppComponent implements OnInit {
 
   addPokemonToTeam(pokemon: Pokemon) {
     length = this.team.length;
-    if (length < 5) { this.team[length] = pokemon; }
-    else { alert('Maximaal 5 pokemon per team'); }
+    if (length < 5) {
+      this.team[length] = pokemon;
+    } else {
+      alert('Maximaal 5 pokemon per team');
+    }
   }
 
   onSelect(pokemon: Pokemon): void {

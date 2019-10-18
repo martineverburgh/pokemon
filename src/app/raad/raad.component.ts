@@ -1,8 +1,7 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Observable } from 'rxjs';
-import { PokemonService } from '../core/services/pokemon.service';
-import { Pokemon } from '../shared/models/pokemon';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {Observable} from 'rxjs';
+import {PokemonService} from '../core/services/pokemon.service';
+import {Pokemon} from '../shared/models/pokemon';
 
 @Component({
   selector: 'app-raad',
@@ -15,19 +14,18 @@ export class RaadComponent implements OnInit {
   pokemon: Observable<Pokemon>;
   name: string;
   antwoord: string;
-  response: string;
-  popup: BsModalRef;
 
-  constructor(private service: PokemonService, private modalService: BsModalService) { }
+  constructor(private service: PokemonService) {
+  }
 
   ngOnInit() {
     this.kiesRandomPokemon();
-  
+
   }
 
-  kiesRandomPokemon(){
+  kiesRandomPokemon() {
     this.randomId = Math.floor(Math.random() * Math.floor(807));
-    this.service.getPokemonById(this.randomId).subscribe(pokemon =>{ 
+    this.service.getPokemonById(this.randomId).subscribe(pokemon => {
       this.pokemon = pokemon;
       this.name = pokemon.name;
     });
@@ -36,18 +34,13 @@ export class RaadComponent implements OnInit {
 
   checkCorrect() {
     if (this.antwoord.toLowerCase() === this.name) {
-      console.log("HOERA! Goed geraden");
-      this.response = "HOERA! Goed geraden";
-
-    }
-    else {
-      console.log("Helaas...Het was " + this.name);
-      this.response = "Helaas...Het was " + this.name;
+      alert('HOERA! Goed geraden');
+    } else {
+      alert('Helaas...Het was ' + this.name);
     }
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal() {
     this.checkCorrect();
-    this.popup = this.modalService.show(template);
-}
+  }
 }
