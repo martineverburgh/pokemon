@@ -13,3 +13,6 @@
 .modal-body {
     color:blue;
 }
+.modal {
+  max-height: 20%;
+}
