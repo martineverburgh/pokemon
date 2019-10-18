@@ -15,14 +15,14 @@ export class PokemonService {
   getPokemonByName(name: string): Observable<any> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
       .pipe(
-      map(result => new Pokemon(result.name, result.sprites.front_default, 100))
+      map(result => new Pokemon(result['name'], result['sprites'].front_default, 100))
       );
   }
 
   getPokemonById(id: number): Observable<any> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .pipe(
-      map(result => new Pokemon(result.name, result.sprites.front_default, 100))
+      map(result => new Pokemon(result['name'], result['sprites'].front_default, 100))
       );
   }
 }
